@@ -1,3 +1,11 @@
+//
+//  main.cpp
+//  Path Planning
+//
+//  Created by 孙浩 on 2017/12/23.
+//  Copyright © 2017年 孙浩. All rights reserved.
+//
+
 #include <iostream>
 #include "Aircraft.hpp"
 
@@ -110,12 +118,12 @@ void ChangeSpeed(Aircraft ai[],double lon, double lat, int distance,int timegap,
 
 int main(int argc, const char * argv[]) {
     double distance = 10, timegap = 3,totaltime=0;
-    double lat =0.05,lon =0.0001;
+    double lat =5,lon =5;
     double CrashArray[100*max][4]={0};
     Aircraft air[max];
     int crashcounttime=0;
     InitiateGroup(air);
-    while(totaltime<360){
+    while(Speed*totaltime<500){
         int countPE[max] = {0};
         ChangeSpeed(air, lon, lat, distance,timegap,countPE);
         SpeedArrange(air);
